@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-09-19 Meeting Minutes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-09-19 Meeting Minutes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified on Sep 19, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-09-19MeetingMinutes-Date">Date</h2><p><time datetime="2020-09-19" class="date-past">19 Sep 2020</time></p><h2 id="id-2020-09-19MeetingMinutes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></p></li><li><p>@Derek Mizushima</p></li><li><p>@Dhruv Maniktala</p></li><li><p>@Kaitlyn Yang</p></li></ul><h2 id="id-2020-09-19MeetingMinutes-Goals">Goals</h2><ul><li><p>Brainstorm topics for honeypot</p></li><li><p>decide topic for honeypot</p></li><li><p>outline proposal paper</p></li></ul><h2 id="id-2020-09-19MeetingMinutes-MeetingNotes">Meeting Notes</h2><ul><li><p><strong>plan:</strong></p><ul><li><p>How does the environment affect what actions users take</p></li><li><p>potential environments to mimic:</p><ul><li><p><span style="color: rgb(54,179,126);">Webserver - Decided environment</span></p><ul><li><p><a href="https://httpd.apache.org/download.cgi" class="external-link" rel="nofollow"><u>https://httpd.apache.org/download.cgi</u></a></p></li></ul></li><li><p>Database</p></li><li><p><span style="color: rgb(54,179,126);">Application server - Decided environment</span></p><ul><li><p><a href="https://opensource.com/business/15/7/six-continuous-integration-tools" class="external-link" rel="nofollow"><u>https://opensource.com/business/15/7/six-continuous-integration-tools</u></a></p></li></ul></li><li><p><span style="color: rgb(54,179,126);">personal computer - Decided environment</span></p></li><li><p>Professional computer w/ security? there’s a password? idk</p></li><li><p>Network - series of containers</p></li><li><p>IoT device</p></li></ul></li></ul><p><br/></p><ul><li><p>Data collection:</p><ul><li><p>How many attacks</p></li><li><p>files modified/added/malware run</p></li><li><p>Types of commands used (snoopy logger)</p></li><li><p>Category of files accessed, frequency of files accessed </p></li><li><p>Number of commands used in category (commands for modifying, commands to modify)</p></li><li><p>Time spent on device</p></li><li><p>Return frequency on device</p></li></ul></li><li><p>Honey</p><ul><li><p>Fake user files - personal computer</p><ul><li><p>Such as pdfs, movies, etc.., whatever a person would have on a computer</p></li></ul></li><li><p>Files specific to type of environment</p><ul><li><p>Webserver: database of usernames + passwords, fake names, fake emails, any software running on webserver, code - Specific Types of Attacks: DoS </p></li><li><p>Personal: IP addr, username and password, files on computer</p></li><li><p>Application Server: running code on build server, build server tests, any fake company confidential information, build configurations</p></li></ul></li></ul></li><li><p>Project Aims:</p><ul><li><p>Q1: How do attacks change based on the honey pot environment?</p><ul><li><p><br/></p></li></ul></li><li><p>Q2: Within a specific target environment, what type of data would an attacker want?</p><ul><li><p>Categorize honey on each environment, is </p></li></ul></li></ul></li></ul><p><br/></p><p><strong>Sources</strong></p><ul><li><p><a href="https://repository.stcloudstate.edu/cgi/viewcontent.cgi?article=1011&amp;context=msia_etds" class="external-link" rel="nofollow"><u>https://repository.stcloudstate.edu/cgi/viewcontent.cgi?article=1011&amp;context=msia_etds</u></a> - paper on honeypot design</p></li><li><p><a href="https://www.acsac.org/2003/papers/spitzner-slides.pdf" class="external-link" rel="nofollow"><u>https://www.acsac.org/2003/papers/spitzner-slides.pdf</u></a></p><ul><li><p>Examples of what honey to use for project</p></li></ul></li><li><p><a href="https://github.com/shbhmsingh72/Honeypot-Research-Papers" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/shbhmsingh72/Honeypot-Research-Papers</a> </p></li></ul><p /><p><br/></p><p><strong>ideas:</strong></p><ul><li><p>honeypot with networks to find out - internet of things, how attackers travel between networks, have different baits at each network to see if attackers are more likely to look for one thing than another, etc</p><ul><li><p><a href="https://arxiv.org/pdf/1701.02446.pdf" class="external-link" rel="nofollow"><u>https://arxiv.org/pdf/1701.02446.pdf</u></a></p></li><li><p><a href="https://apps.dtic.mil/sti/citations/AD1065275" class="external-link" rel="nofollow"><u>https://apps.dtic.mil/sti/citations/AD1065275</u></a></p></li></ul></li><li><p>bots attack honeypot, differences between bot and human attacking </p><ul><li><p><a href="https://ieeexplore.ieee.org/abstract/document/8757534" class="external-link" rel="nofollow"><u>https://ieeexplore.ieee.org/abstract/document/8757534</u></a></p></li><li><p><a href="https://dl.acm.org/doi/abs/10.1145/3134600.3134614" class="external-link" rel="nofollow"><u>https://dl.acm.org/doi/abs/10.1145/3134600.3134614</u></a> - paper looks to see what types of information humans attack vs bots, etc.</p></li></ul></li><li><p>old honey pot project: <a href="https://github.com/mausam-patel/Honeypot_Project" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/mausam-patel/Honeypot_Project</a> </p></li><li><p>Modifying environments</p><ul><li><p>what files/informations are changed and edited</p></li><li><p>drop malware</p></li><li><p>block at various points?</p></li></ul></li><li><p>security level on honeypot - keep low to get data?</p></li><li><p>network of devices - how do attackers move between them? what stops them - i.e. security features?</p></li><li><p>what types of passwords are well susceptible<br/></p></li></ul></li></ul><h2 id="id-2020-09-19MeetingMinutes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 86.0px;"/><col style="width: 86.0px;"/><col style="width: 133.0px;"/><col style="width: 453.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Time</p></th><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Presenter</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><ul><li><p></p></li></ul></td></tr><tr><td class="confluenceTd"><p><br/></p></td><td class="confluenceTd"><p><br/></p></td><td class="confluenceTd"><p><br/></p></td><td class="confluenceTd"><p><br/></p></td></tr></tbody></table></div><h2 id="id-2020-09-19MeetingMinutes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="1409041"><li data-inline-task-id="9"><span>&nbsp;</span></li></ul><h2 id="id-2020-09-19MeetingMinutes-Decisions">Decisions</h2><p></p><ul class="decision-list"><li>Decided to create honeypot to mimic a webserver, application server, personal computer</li><li>Decided to research differences in attacks between honeypot environments</li><li>Brainstormed  several metrics for measurement</li><li>Brainstormed potential honey for each target environment</li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : Application Server Container</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Technical-Log_76021764.html">Technical Log</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : Application Server Container
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kaitlyn Yang</span>, last modified by <span class='editor'> Mani Pabba</span> on Oct 26, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Template: 101, Running: 201, Backup: 301</strong></p><p><strong>Jenkins Server (Application Server) </strong></p><ul><li><p>Added into .bash.rc : cd /var/lib/jenkins</p><ul><li><p>This allows the ssh user to immediately jump to where the files are held</p></li></ul></li><li><p>Added password protected zip files: zip &lt;file name&gt; --password &lt;password&gt; &lt;files&gt; &lt;to&gt; &lt;zip&gt;</p></li><li><p>Removed firewall rules added during setup</p></li></ul><p><em><strong>10/14/2020 </strong></em><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a><em><strong> </strong></em></p><ul><li><p>Faker Script</p><ul><li><p>Created python script and bash script to generate usernames and passwords using faker python library. Also generates email</p></li><li><p>Created script that generates random files for Jenkins workspace</p></li><li><p>Command: </p><ul><li><p>./generate_usernames_passwords &lt;num of entries&gt; &lt;output_file&gt;</p></li></ul></li></ul></li><li><p>Template: ct101, Running on: ct201, Backup on: ct301</p></li><li><p>IP addr: 172.20.0.2</p></li></ul><p><em><strong>10/14/2020 </strong></em><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a><em><strong> </strong></em></p><ul><li><p><u>SET-UP:</u></p><ul><li><p>Created pct container on workstation VM</p><p>followed tutorial: <a href="https://phoenixnap.com/kb/install-jenkins-ubuntu" class="external-link" rel="nofollow">https://phoenixnap.com/kb/install-jenkins-ubuntu</a></p><p>and <a href="https://pkg.jenkins.io/debian/" class="external-link" rel="nofollow">https://pkg.jenkins.io/debian/</a></p><p>added firewall rules:</p><p><code>sudo ufu enable</code></p><p><code>sudo ufw allow 8080</code></p><p><code>sudo ufw status</code></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/75956235/76021796" data-image-src="attachments/75956235/76021796" data-height="128" data-width="486" data-unresolved-comment-count="0" data-linked-resource-id="76021796" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="e94513fc-1675-4cb6-95c3-ac39f924d93c#media-blob-url=true&amp;id=c7a4e498-a02b-4e7c-b7dc-1475d455f016&amp;contextId=10024&amp;collection=" data-base-url="https://hacs200-1d.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="75956235" data-linked-resource-container-version="5" data-media-id="be7714f8-d145-43cb-a769-a64ebff9dbda" data-media-type="file"></span></li><li><p>(in order to configure Jenkins server)</p><p> </p><p><code>./google-chrome --no-sandbox</code> to launch chrome browser</p><p> </p><p>configuring Jenkins Server</p><p>went to 172.20.0.2:8080 in browser to configure Jenkins</p><p>(opened 8080 in container, 172.20.0.2 is ip of container)</p><p> </p></li><li><p>Created script to generate fake user names and passwords</p></li><li><p>Created users within Jenkins server</p></li><li><p>Main access account – admin: password</p><p /></li><li><p>Created project Int_Proj_Build</p></li><li><p>(path: /var/lib/jenkins/workspace/Int_Proj_Build)</p></li><li><p>Added some random C code and commands to compile it for Jenkins to run it</p></li></ul></li></ul><p><em><strong>10/03/2020 - 6:00 PM </strong></em><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a><strong> </strong></p><ul><li><p>Added iptable rules to link enp4s2 interface with container 101</p><ul><li><p>Set up networking between shared external network and container for installing files</p><p><strong>NEED TO DELETE IP table rules later</strong></p><p>iptables --table nat --append PREROUTING --in-interface enp4s2 --destination 172.30.133.251 --jump DNAT --to-destination 172.20.0.2</p><p>iptables --table nat --append POSTROUTING --out-interface enp4s2 --source 172.20.0.2 --jump SNAT --to-source 172.30.133.251</p><p>can view with: iptables --table nat --list</p></li></ul></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/75956235/76021786.png">image-20201014-205103.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/75956235/76021796">e94513fc-1675-4cb6-95c3-ac39f924d93c#media-blob-url=true&amp;id=c7a4e498-a02b-4e7c-b7dc-1475d455f016&amp;contextId=10024&amp;collection=</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

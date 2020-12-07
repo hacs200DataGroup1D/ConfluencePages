@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-11-08 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-11-08 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified on Nov 09, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-11-08Meetingnotes-Date">Date</h2><p><time datetime="2020-11-08" class="date-past">08 Nov 2020</time></p><p>Time: 7:00  PM - 8:30 PM</p><h2 id="id-2020-11-08Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></p></li><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li></ul><h2 id="id-2020-11-08Meetingnotes-Goals">Goals</h2><p>Fix Issues with container 202 and 203</p><h2 id="id-2020-11-08Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 123.0px;"/><col style="width: 637.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>Fix Containers</p></td><td class="confluenceTd"><ul><li><p>We think there is an issue with MITM as we are getting login attempts but not getting an actual logins</p><ul><li><p>201 container working as expected, 202 and 203 not allowing logins</p></li></ul></li></ul></td></tr><tr><td class="confluenceTd"><p>Fix blocking rules</p></td><td class="confluenceTd"><ul><li><p>It seems like our rules aren’t blocking duplicate attackers</p></li><li><p>We observed that there are many duplicate commands but from different IP addresses. We might have to address this issue, but since they come from distinct IP addresses, this may be hard to address</p></li></ul></td></tr></tbody></table></div><h2 id="id-2020-11-08Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="126517249"><li data-inline-task-id="9"><span class="placeholder-inline-tasks"><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> Go to office hours tomorrow to try to resolve issue</span></li></ul><p>Update:</p><p>Containers are working again! After clearing IP table blocking rules, containers started to work again.</p><ul class="inline-task-list" data-inline-tasks-content-id="126517249"><li data-inline-task-id="10"><span class="placeholder-inline-tasks">Try to figure out how IP table rules conflict with MITM</span></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

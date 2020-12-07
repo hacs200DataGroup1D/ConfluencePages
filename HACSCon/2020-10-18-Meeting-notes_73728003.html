@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-10-18 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-10-18 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified by <span class='editor'> Kaitlyn Yang</span> on Oct 19, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-10-18Meetingnotes-Date">Date</h2><p><time datetime="2020-10-18" class="date-past">18 Oct 2020</time></p><p>Time 11:00 AM - 1 PM, 5:00 PM - 10:00 PM</p><h2 id="id-2020-10-18Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></p></li><li><p><a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p></li></ul><h2 id="id-2020-10-18Meetingnotes-Goals">Goals</h2><p>Finish up honeypots for deployment</p><h2 id="id-2020-10-18Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 123.0px;"/><col style="width: 637.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>Backup script</p></td><td class="confluenceTd"><ul><li><p>Set up remote repository in Github to hold backup data</p></li><li><p>Created script that backs up data every hour onto Github repository</p></li><li><p>Uses crontab to run every hour</p></li></ul></td></tr><tr><td class="confluenceTd"><p><br/>Health Logs</p></td><td class="confluenceTd"><ul><li><p>Writes health metrics of honeypot to Google sheets via Google sheets API</p><ul><li><p>used Python and bash to write code</p></li><li><p>Uses crontab to run every hour</p></li></ul></li></ul></td></tr><tr><td class="confluenceTd"><p>MITM</p></td><td class="confluenceTd"><ul><li><p>Finalized script, debugged MITM to work</p><ul><li><p>script takes in parameters to run MITM server based on incoming ip, container ip, container id, etc</p></li></ul></li></ul></td></tr><tr><td class="confluenceTd"><p>Webserver</p></td><td class="confluenceTd"><ul><li><p>Created and configured container for webserver</p></li><li><p>Apache webserver running on webserver</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Recycle, wait, monitor</p></td><td class="confluenceTd"><ul><li><p>Modified scripts from last year to work for our honeypot setup</p><ul><li><p>Scripts now take arguments for the different container numbers</p></li></ul></li><li><p>Tested all three scripts to make sure they work and captures data</p></li></ul></td></tr></tbody></table></div><h2 id="id-2020-10-18Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="73728003"><li data-inline-task-id="4"><span class="placeholder-inline-tasks">Finish firewall setup</span></li><li data-inline-task-id="5"><span class="placeholder-inline-tasks">Test and finalize honeypot</span></li><ul class="inline-task-list" data-inline-tasks-content-id=""><li data-inline-task-id="6"><span class="placeholder-inline-tasks">make sure it works with all three containers at the same time</span></li></ul><li data-inline-task-id="7"><span class="placeholder-inline-tasks">Assign public ips</span></li></ul><h2 id="id-2020-10-18Meetingnotes-Decisions">Decisions</h2><p></p><ul class="decision-list" />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-10-19 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-10-19 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kaitlyn Yang</span>, last modified by <span class='editor'> Mani Pabba</span> on Oct 19, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-10-19Meetingnotes-Date">Date</h2><p><time datetime="2020-10-19" class="date-past">19 Oct 2020</time></p><p>7:00 - 11:00 PM</p><h2 id="id-2020-10-19Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a></p></li><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li></ul><h2 id="id-2020-10-19Meetingnotes-Goals">Goals</h2><p></p><ul><li><p>Testing recycling scripts</p></li><li><p>Changing IP addresses to assigned IP addresses</p></li><li><p>Complete weekly Standup</p></li><li><p>Configure Firewall</p></li><li><p>Finalize containers</p></li></ul><h2 id="id-2020-10-19Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 123.0px;"/><col style="width: 637.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>Recycling Scripts</p></td><td class="confluenceTd"><ul><li><p>Updated to work with new IP addresses</p></li><li><p>Tested recycling scripts to make sure they work</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Changing IP addresses</p></td><td class="confluenceTd"><ul><li><p>Following steps noted at <a href="https://github.com/UMD-ACES/Honeypot_Project/wiki/Proxmox-Host-and-Container-Networking" class="external-link" rel="nofollow">https://github.com/UMD-ACES/Honeypot_Project/wiki/Proxmox-Host-and-Container-Networking</a></p></li><li><p>Running into issues with ssh via public ips (or ssh into containers) after changing ip addresses </p></li><li><p>Created script ip_assign.sh to configure public ips, added to crontab to run on reboot<br/></p></li></ul></td></tr><tr><td class="confluenceTd"><p>Configure Firewall</p></td><td class="confluenceTd"><ul><li><p>Looked over and ran firewall.sh</p></li><li><p>Added crontab @reboot for firewall.sh and tested to make sure rules still exist even on shutdown</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Finalize Containers</p></td><td class="confluenceTd"><ul><li><p>Entered all the containers, checked each others files and added additional files to match the honey we stated in the proposal</p></li><li><p>Redid templates and backups for all of the containers</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Weekly Standup</p></td><td class="confluenceTd"><ul><li><p>Finished weekly standup due tonight</p></li><li><p>Finished compiling technical logs, health logs, and meeting minutes</p></li></ul></td></tr></tbody></table></div><h2 id="id-2020-10-19Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="75923457"><li data-inline-task-id="5"><span class="placeholder-inline-tasks">Ping a TA to make our honeypot face the internet</span></li><li data-inline-task-id="6"><span class="placeholder-inline-tasks">Figure out issue with SSH</span></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

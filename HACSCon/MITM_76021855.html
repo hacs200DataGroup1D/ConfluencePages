@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : MITM</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Technical-Log_76021764.html">Technical Log</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : MITM
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified by <span class='editor'> Kaitlyn Yang</span> on Nov 24, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>10/17/20 </strong><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> <a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> <a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> </p><ul><li><p>Configured configuration file mitm_c1.js to have custom banner</p></li><li><p>config file allows for attacker to enter with 1 password attempt<br/></p></li></ul><p><strong>10/18/20</strong> <a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> <a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Created script mitm_setup.sh that sets up ip table rules for port forwarding<br/>iptables --table nat --append PREROUTING --destination $1 --jump DNAT --to-destination $2<br/>iptables --table nat --append POSTROUTING --source $2 --jump SNAT --to-source $1<br/>iptables --table nat --insert PREROUTING 1 --destination $1 --protocol tcp --destination-port 22 --jump DNAT --to-destination 172.20.0.1:$3</p></li><li><p>takes 5 arguments</p><ul><li><p>entry point ip (public ip address)</p></li><li><p>container ip</p></li><li><p>MITM port</p></li><li><p>name of config file</p></li><li><p>container id</p></li></ul></li><li><p>node command runs with nohup, output redirected to file in /root/MITM_data/&lt;container_id&gt;</p></li><li><p>Tested MITM, worked out bugs to make sure MITM runs properly</p><ul><li><p>One problem we ran into was for container 201, ufw needs to be disabled for Jenkins server</p></li></ul></li></ul><p><strong>10/23/20 </strong><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> <a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><p><em>Debugging MITM:</em></p><ul><li><p>to fix MITM problem (can ssh in but not with a MITM running):</p><ul><li><p>del scope link src 10.2.0.1 128.8.0.0/16 dev enp4s1 proto kernel scope link src 128.8.238.104</p></li></ul></li><li><p>to check if port forwarding is working:</p><ul><li><p>telnet 172.20.0.1 &lt;MITM port&gt;</p></li></ul></li><li><p>Changed ports on MITM</p><ul><li><p>201 uses port 10201</p></li><li><p>202 uses port 10202</p></li><li><p>203 uses port 10200</p><ul><li><p>for some reason, 10203 causes MITM to not work!</p></li></ul></li></ul></li><li><p>No longer need iptable rules in mitm script as we just put in all iptable rules at once for final deployment</p></li></ul><p><strong>10/11/2020 </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Issue: MITM repeatedly goes down after a user fails to authenticate into the containers, blocks anyone else trying to enter</p></li><li><p>Current solution: Reset container if it is clear this is happening on the MITM logs</p></li><li><p>Solutions proposed on Slack #general channel implemented.</p></li></ul><blockquote><p>you can patch your <code>mitm.js</code> to allow empty passwords - that may be part of the issue some of you all are having<a href="https://github.com/UMD-ACES/MITM/issues/5" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/UMD-ACES/MITM/issues/5</a> <code>PermitEmptyPassword</code> needs to set to <code>Yes</code> inside your container’s <code>/etc/ssh/sshd_config</code> to allow the attacker to log in with empty password tho.</p></blockquote><blockquote><p>alternatively, MITM can be patched to properly disallow the empty password within handleAttackerAuth by adding an <code>&amp;&amp; ctx.password !== ''</code> to the condition expression in <code>if(autoAccess === true &amp;&amp; autoBarrier === true) { handleAttempt(attacker); }</code> . This will let MITM properly treat the empty password as a failure case, rather than having MITM accept '' as a password regardless of whether or not your container does (means you don't need to modify your templates, but also means attackers with empty passwords will be turned away)</p></blockquote><ul><li><p>Will continue to monitor for updates</p></li></ul><p><strong>11/16/2020 </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Issue with MITM persists, have failed to log data for the past week, the issue seems to be occurring more often now</p></li><li><p>Created ./stop_mitm.sh script and runs on crontab every hour (at 40 minute mark)</p><ul><li><p>Checks all three containers</p></li><li><p>If any are on monitor during this time, recycle the container</p></li></ul></li></ul><p><strong>11/24/2020</strong></p><ul><li><p>Error with our MITM was with our networking - gateways should end in 26/27 for ip addr</p></li><li><p>Added new MITM container - copy of container 201, at IP: 128.8.37.103/27</p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

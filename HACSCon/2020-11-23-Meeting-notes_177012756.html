@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-11-23 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-11-23 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kaitlyn Yang</span> on Nov 23, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-11-23Meetingnotes-Date">Date</h2><p><time datetime="2020-11-23" class="date-past">23 Nov 2020</time></p><h2 id="id-2020-11-23Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a></p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> </p></li></ul><h2 id="id-2020-11-23Meetingnotes-Goals">Goals</h2><p></p><ul><li><p>Decide if we want to change our research question</p></li><li><p>Work on standup</p></li><li><p>Debugging 202/203</p></li></ul><h2 id="id-2020-11-23Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 123.0px;"/><col style="width: 637.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>Research Question</p></td><td class="confluenceTd"><ul><li><p>Based on the comments made by the professor and TA last class, and taking a look at the data we have gathered, we decided to change the research question</p></li><li><p>Because we have gathered a significant amount of bot attacks, we want to look at the complexity of the attack (# of commands, duration of attack) and compare it to the time of the attack to see if there is a time of day with the most high risk attacks</p></li><li><p>We also want to see if the location of the attacks make a difference by looking up the IP addresses</p></li><li><p>Furthermore, we discussed that because we have a lot of recurring bot attacks, we can compare the data between them</p></li><li><p>For the same bot, we can look at the time they are attacking, the complexity of their code and malware dropped, the number of attacks we have received from them, and the number of unique IP addresses they have</p></li></ul></td></tr><tr><td class="confluenceTd"><p>Debugging 202/203</p></td><td class="confluenceTd"><ul><li><p>Containers 202 and 203 MITM were failing all authentication again</p></li><li><p>We tested different ways of fixing it:</p><ul><li><p>We tried changing the sshd config files on them to allow password authentication which had been commented out for some reason and re-templated both of them</p></li><li><p>We went into index.js and added a line of code that disallows empty usernames</p></li><li><p>Neither seem to have worked</p></li></ul></li></ul></td></tr></tbody></table></div><h2 id="id-2020-11-23Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="177012756"><li data-inline-task-id="4"><span class="placeholder-inline-tasks">Fix containers 202 and 203</span></li><li data-inline-task-id="5"><span class="placeholder-inline-tasks">Data parsing scripts</span></li></ul><h2 id="id-2020-11-23Meetingnotes-Decisions">Decisions</h2><p></p><ul class="decision-list" />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

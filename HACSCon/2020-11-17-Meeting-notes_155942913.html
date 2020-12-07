@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-11-17 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-11-17 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified on Nov 17, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-11-17Meetingnotes-Date">Date</h2><p><time datetime="2020-11-17" class="date-past">17 Nov 2020</time></p><h2 id="id-2020-11-17Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></p></li><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> </p></li></ul><h2 id="id-2020-11-17Meetingnotes-Goals">Goals</h2><p>Fix issues with MITM on container 202 and 203</p><p>Discuss progress on data collection</p><h2 id="id-2020-11-17Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 104.0px;"/><col style="width: 118.0px;"/><col style="width: 538.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Time</p></th><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><ul><li><p></p></li></ul></td></tr><tr><td class="confluenceTd"><p><br/>3:30-5:15</p></td><td class="confluenceTd"><p>Suggestions<br/></p></td><td class="confluenceTd"><p>Look at types of attacks and categorize in types of ways:</p><p>Ex. See if attacks are aggressive way</p><p>Look at duration of attack</p><p>Look at where attack comes from (origin IP)</p><p>Look at time of attack (both relative to us and to origin)<br/></p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>Fix containers</p></td><td class="confluenceTd"><ul><li><p>128.8.238.114 already used by other group! Conflict with 202 container.</p></li><li><p>Updated IP address to new IP 128.8.238.116</p></li><li><p>Updated recycle script, nat rules, ip route, deleted old ip route</p></li><li><p>ran command ip route del 128.8.0.0/16</p></li><li><p>As of now, it looks like 202 is working, but only from terpconnect</p><ul><li><p>(hasn’t been deployed yet)</p></li></ul></li></ul></td></tr></tbody></table></div><h2 id="id-2020-11-17Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="155942913"><li data-inline-task-id="2"><span class="placeholder-inline-tasks">Confirm 202 container still works after deployment</span></li><li data-inline-task-id="3"><span class="placeholder-inline-tasks">Start working on data parsing scripts</span></li><li data-inline-task-id="4"><span class="placeholder-inline-tasks">Consider looking at different questions we can ask for our final paper, listed above</span></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

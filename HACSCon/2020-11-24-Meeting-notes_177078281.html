@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : 2020-11-24 Meeting notes</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Meeting-notes_131304.html">Meeting notes</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : 2020-11-24 Meeting notes
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span> on Nov 24, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="id-2020-11-24Meetingnotes-Date">Date</h2><p><time datetime="2020-11-24" class="date-past">24 Nov 2020</time></p><p>Time: 3:30 - 5:40</p><h2 id="id-2020-11-24Meetingnotes-Participants">Participants</h2><p></p><ul><li><p><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></p></li><li><p><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> </p></li><li><p><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p></li></ul><h2 id="id-2020-11-24Meetingnotes-Goals">Goals</h2><p>Fix MITM</p><p>Discuss research question</p><h2 id="id-2020-11-24Meetingnotes-Discussiontopics">Discussion topics</h2><div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 123.0px;"/><col style="width: 637.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p>Item</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>Research Question</p></td><td class="confluenceTd"><p>Consider for research question</p><p>Complexity = # commands</p><p># commands vs. attack duration</p><p /></td></tr><tr><td class="confluenceTd"><p>Add new container<br/></p></td><td class="confluenceTd"><p>Added copy of 201 in place of 204, with IP 172.20.0.5</p><p>Added routing table</p></td></tr><tr><td class="confluenceTd"><p>Debug routing table</p></td><td class="confluenceTd"><p>Issue with netmask, was using netmask /16 where we should be using /26 and /27</p><p>Re-did routing, added new NAT rule</p><p>updated ip_assign script with corrections</p><p>updated ip rule backup</p></td></tr></tbody></table></div><h2 id="id-2020-11-24Meetingnotes-Actionitems">Action items</h2><p></p><ul class="inline-task-list" data-inline-tasks-content-id="177078281"><li data-inline-task-id="17"><span class="placeholder-inline-tasks">Parsing scripts by Sunday (11/29/20)</span></li><li data-inline-task-id="18"><span class="placeholder-inline-tasks">IP location <a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a></span></li><li data-inline-task-id="19"><span class="placeholder-inline-tasks"><a class="confluence-userlink user-mention" data-username="5ea3ca0f54979e0c193875bc" data-account-id="5ea3ca0f54979e0c193875bc" href="https://hacs200-1d.atlassian.net/wiki/people/5ea3ca0f54979e0c193875bc?ref=confluence" target="_blank" data-linked-resource-id="6914051" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Dhruv Maniktala</a> #of commands parsing</span></li><li data-inline-task-id="20"><span class="placeholder-inline-tasks"><a class="confluence-userlink user-mention" data-username="5f697baa06e34200710684a1" data-account-id="5f697baa06e34200710684a1" href="https://hacs200-1d.atlassian.net/wiki/people/5f697baa06e34200710684a1?ref=confluence" target="_blank" data-linked-resource-id="6914057" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Derek Mizushima</a> parsing for attack duration</span></li></ul><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

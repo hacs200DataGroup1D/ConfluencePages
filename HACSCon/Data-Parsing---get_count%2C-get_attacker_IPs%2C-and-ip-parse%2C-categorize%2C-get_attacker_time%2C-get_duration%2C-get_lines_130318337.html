@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : Data Parsing - get_count, get_attacker_IPs, and ip-parse, categorize, get_attacker_time, get_duration, get_lines</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Technical-Log_76021764.html">Technical Log</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : Data Parsing - get_count, get_attacker_IPs, and ip-parse, categorize, get_attacker_time, get_duration, get_lines
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kaitlyn Yang</span>, last modified on Nov 30, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>./get_count.sh [-a &lt;data&gt; -ms &lt;file size&gt; -q -ct &lt;container number&gt;]</p><p><strong>10/30/2020 </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Created script to analyze the session files from MITM</p></li><li><p>Takes three options: </p><ul><li><p><code>-a &lt;date in format MMDD (i.e. -a 1104)&gt;</code> returns data only after the specific date given</p></li><li><p><code>-ms &lt;file size&gt;</code> returns data for the files greater than the size provided</p></li><li><p><code>-q</code> “quiet” only echos the files that have data in it</p></li></ul></li><li><p>Script provides information about # of attacks total, # of attacks for a given container, # of attacks with data written in it</p><ul><li><p>To find information, zcat the files and use awk to parse for container number and word count, if the number of lines is greater than 10 (aka nothing underneath Attacker Input Stream) then it adds it to the count and echos the file name</p></li><li><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">    if [[ $DATE -gt 1200 ]]; then
+        MONTH=&quot;\&quot;Dec\&quot;&quot;
+        DATE=$(( $DATE-1200 ))
+        arr=($(ls -l -t /root/MITM_data/sessions | awk &#39;{ if ($5&gt;&#39;$SIZE&#39; &amp;&amp; $7&gt;=&#39;$DATE&#39; &amp;&amp; $6==&quot;Dec&quot;) print $9&#39;))
+  elif [[ $DATE -gt 1100 ]]; then
+        MONTH=&quot;\&quot;Nov\&quot;&quot;
+        DATE=$(( $DATE-1100 ))
+        arr=($(ls -l -t /root/MITM_data/sessions | awk &#39;{ if ($5&gt;&#39;$SIZE&#39; &amp;&amp; (($7&gt;=&#39;$DATE&#39; &amp;&amp; $6==&quot;Nov&quot;) || ($6==&quot;Dec&quot;))) print $9}&#39;))
+  else
+        MONTH=&quot;\&quot;Oct\&quot;&quot;
+        DATE=$(( $DATE-1000 ))
+        arr=($(ls -l -t /root/MITM_data/sessions | awk &#39;{ if ($5&gt;&#39;$SIZE&#39; &amp;&amp; (($7&gt;=&#39;$DATE&#39; &amp;&amp; $6==&quot;Oct&quot;) || ($6==&quot;Nov&quot;) || ($6==&quot;Dec&quot;))) print $9}&#39;))
+        echo $CMD
+  fi  
+  
+  ct_num=`zcat /root/MITM_data/sessions/$i | awk &#39;/Container ID: / {print $3}&#39;`
+  lines=`zcat /root/MITM_data/sessions/$i | wc -l`</pre>
+</div></div></li></ul></li></ul><p><strong>11/09/2020 </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Updated script to also only provide data for a specific container number so we can filter the files by which container the attacker is in</p></li></ul><p /><p>./get_attacker_IPs.sh </p><p><strong>11/09/2020 </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><ul><li><p>Script writes all attacker IPs into file “attacker_IPs” sitting in MITM directory</p></li><li><p>ip=<code>zcat sessions/$i | awk '/Attacker IP Address: / {print $4}'</code><br/>ct=<code>zcat sessions/$i | awk '/Container ID: / {print $3}'</code></p></li><li><p>Also writes attacker IPs for each container into files attacker_IPs$ct</p></li><li><p>Doing <code>wc -l</code> on files provides data on the # of IPs total, and <code>cat attacker_IPs | sort -u | uniq | wc -</code>calculates the number of unique IP addresses for all attacks and any given container</p></li></ul><p><strong>11/25/20</strong> <a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> </p><ul><li><p>Script that finds information based on IP address</p></li><li><p>Uses ipinfo website to retrive data</p></li><li><p>Written in Python, uses requets API to make request, parses JSON response, redirects into output file</p></li><li><p>Script:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: py; gutter: false; theme: Confluence" data-theme="Confluence">import requests
+import sys
+
+#argument 1: input file
+#argument 2: output file
+
+input = sys.argv[1]
+output = sys.argv[2]
+
+input_file = open(input, &quot;r&quot;)
+ip_lines = input_file.readlines()
+
+
+output_file = open(output, &quot;a&quot;)
+
+for ip in ip_lines:
+  ip = ip.encode(&#39;utf-8&#39;).strip()
+  print(ip)
+
+  response = requests.get(&quot;https://ipinfo.io/&quot; + ip + &quot;?token=056b84cadbf003&quot;)
+  response_json = response.json()
+  #print(response_json)
+
+  output_file.write(ip + &quot;, &quot;)
+  #output_file.write(response_json[&quot;hostname&quot;].strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;city&quot;].encode(&#39;utf-8&#39;).strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;region&quot;].encode(&#39;utf-8&#39;).strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;country&quot;].encode(&#39;utf-8&#39;).strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;loc&quot;].encode(&#39;utf-8&#39;).strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;org&quot;].encode(&#39;utf-8&#39;).strip() + &quot;, &quot;)
+  #output_file.write(response_json[&quot;postal&quot;].strip() + &quot;, &quot;)
+  output_file.write(response_json[&quot;timezone&quot;].encode(&#39;utf-8&#39;).strip() + &quot;\n&quot;)
+
+input_file.close()
+output_file.close()
+</pre>
+</div></div><ul><li><p>Bash script also written to do same task using curl, however, was inefficiant</p></li><li><p>Script:</p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">#!/bin/bash
+
+# $1 file to read
+# $2 file to write
+
+input=$1
+output=$2
+
+while read line; do
+  echo -n &quot;$line , &quot; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/hostname/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/city/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/region/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/country/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/loc/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/org/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  echo -n &quot;$(curl ipinfo.io/$line/postal/?token=056b84cadbf003) , &quot; | tr -d &#39;\n&#39; &gt;&gt; $output
+  curl ipinfo.io/$line/timezone/?token=056b84cadbf003 &gt;&gt; $output
+
+  #curl ipinfo.io/$line/city/?token=056b84cadbf003 &gt;&gt; $output
+  #curl ipinfo.io/$line/region/?token=056b84cadbf003 &gt;&gt; $output
+  #curl ipinfo.io/$line/country/?token=056b84cadbf003 &gt;&gt; $output
+
+
+done &lt; $input
+</pre>
+</div></div><p /><p><strong>11/28/2020  </strong><a class="confluence-userlink user-mention" data-username="5f66457c0999c0007779d44b" data-account-id="5f66457c0999c0007779d44b" href="https://hacs200-1d.atlassian.net/wiki/people/5f66457c0999c0007779d44b?ref=confluence" target="_blank" data-linked-resource-id="196610" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Kaitlyn Yang</a> </p><p>./get_attacker_time.sh</p><ul><li><p>Goes through all the session files and prints out what time the attacker logged in</p></li><li><p>Gets the date by running: <code>date = zcat sessions/$i | awk '/Date:/ {print $3}'</code></p></li><li><p>If file has more than 10 lines of data aka there is an attacker stream - writes time into attacker_timeHigh file, writes all times to attacker_time</p></li></ul><p>./categorize.sh</p><ul><li><p>Goes through all session files and writes session file names to specific files depending on the text within it</p></li><li><p>Categorizes based on the bot which is running the code; current categories made by hand:</p><ul><li><p>bestony</p></li><li><p>ipcloudprint</p></li><li><p>longcmd</p></li><li><p>myfrance</p></li><li><p>percocetbins</p></li><li><p>scp </p></li><li><p>thorbins</p></li><li><p>uname </p></li><li><p>uncategorized</p></li></ul></li><li><p>Finds similarities by doing a grep: if [[ $text == */text being looked for/* ]]; then … fi</p></li></ul><p><strong>11/30/2020</strong></p><p>./get_lines &lt;file of session file names&gt; &lt;type&gt;</p><ul><li><p>reads a list of session file names and returns either the number of lines in the file (option 1) or number of commands (option 2)</p></li><li><p>If option 1 is chosen (number of lines), for each session files the word count is found and subtracted ten to get the files under attacker stream</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">c=`zcat sessions/$line | wc -l`
+echo $(($c-10))</pre>
+</div></div></li><li><p>If option 2 is chosen (number of commands), then the number of commands is found, calculated two ways:</p><ul><li><p>If the attacker uses non-interactive mode, the number of semicolons + 1 is returned</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">text=`zcat sessions/$line | grep -o &quot;Noninteractive mode attacker command:.*&quot;`
+c=`zcat sessions/$line | grep -o -a &quot;;&quot; | wc -l`
+echo $(($c+1))</pre>
+</div></div></li><li><p>If the attacker does not, the number of lines after attacker keystrokes is returned</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">c=`zcat sessions/$line | awk &#39;/Attacker Keystrokes/,EOF {print $0}&#39; | wc -l`
+echo $(($c-1))</pre>
+</div></div></li></ul></li></ul><p>./get_duration &lt;file of session files&gt;</p><ul><li><p>similarly, reads in file of session file names</p></li><li><p>if the attacker is in non-interactive mode, the program returns 0</p></li><li><p>otherwise, it returns the difference of the time the last command is run and the attacker login time</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">input=$1
+
+while read line; do
+        text=`zcat sessions/$line | grep -o &quot;Noninteractive mode attacker command:.*&quot;`
+        if [[ $text != &quot;&quot; ]]; then
+                echo &quot;0&quot;
+        else
+                login=`zcat sessions/$line | awk &#39;/Date:/ {print $3}&#39;`
+                logout=`zcat sessions/$line | awk &#39;/Attacker Keystrokes/,EOF {print $2}&#39; | tail -1 | sed &#39;s/.$//&#39;`
+                difference=$(( $(date -d &quot;$logout&quot; &quot;+%s&quot;) - $(date -d &quot;$login&quot; &quot;+%s&quot;) ))
+                echo $difference
+        fi
+done &lt; $input</pre>
+</div></div></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

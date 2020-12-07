@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HACS200-Confluence : Backup Script</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="HACS200-Confluence_131289.html">HACS200-Confluence</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Technical-Log_76021764.html">Technical Log</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HACS200-Confluence : Backup Script
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mani Pabba</span>, last modified on Oct 26, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>10/17/02 </strong><a class="confluence-userlink user-mention current-user-mention" data-username="5f66448142547c007148d21e" data-account-id="5f66448142547c007148d21e" href="https://hacs200-1d.atlassian.net/wiki/people/5f66448142547c007148d21e?ref=confluence" target="_blank" data-linked-resource-id="1409025" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://hacs200-1d.atlassian.net/wiki">Mani Pabba</a> </p><ul><li><p>Repo: <a href="https://github.com/hacs200DataGroup1D/Group1D_Data" data-card-appearance="inline" class="external-link" rel="nofollow">https://github.com/hacs200DataGroup1D/Group1D_Data</a> (private repository)</p></li><li><p>Script<br/></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">#!/bin/bash
+#PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/MITM_data
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/binexport DISPLAY=:0.0
+
+#push directory to github
+
+echo &quot;backup running&quot;
+
+cd /root/MITM_data/
+git branch -M main
+git pull
+git add -A
+timestamp=$(date)
+git commit -m &quot;Backup $timestamp&quot;
+git push -u origin main</pre>
+</div></div></li><li><p>Created script backup_data.sh</p></li><li><p>Uses Github to store data</p></li><li><p>Added ssh keys to authenticate git</p><ul><li><p><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" class="external-link" rel="nofollow">https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p></li><li><p>Used <a href="mailto:git@github.com" class="external-link" rel="nofollow">git@github.com</a>:hacs200DataGroup1D/Group1D_Data.git url</p></li><li><p>set remote origin using ssh url</p></li></ul></li><li><p>backs up any changes within the /root/MITM_data directory where all login attempts, sessions, etc. are located</p></li><li><p>Each backup is a commit with a timestamp in the commit message</p></li><li><p>Only changed data is backed up (no change means no backup)</p></li><li><p>Added script to crontab to run every hour</p><ul><li><p>Issues that were resolved:</p><ul><li><p>Need to specify PATH of bash script</p></li><li><p>Need export DISPLAY=:0.0</p></li><li><p>In crontab, need following for bash script to execute</p><ul><li><p>SHELL=/bin/sh</p></li><li><p>PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin<br/><br/><br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" src="attachments/75890818/76021918.png" data-image-src="attachments/75890818/76021918.png" data-height="616" data-width="906" data-unresolved-comment-count="0" data-linked-resource-id="76021918" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20201020-030915.png" data-base-url="https://hacs200-1d.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="75890818" data-linked-resource-container-version="2" data-media-id="fcc4df26-7bc4-4f82-9d23-ba8abf943176" data-media-type="file"></span><p><br/></p></li></ul></li></ul></li></ul></li></ul><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/75890818/76021918.png">image-20201020-030915.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 07, 2020 15:47</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
